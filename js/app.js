@@ -12,10 +12,6 @@ function add_to_shopping_list() {
     document.forms[0].description.value
     );
 
-  console.log(newItem);
-
   myList.addItem(newItem);
   document.getElementById('content').innerHTML = myList.render();
-
-//  breakpoint;
 }

@@ -1,7 +1,6 @@
 function ShoppingList() {
   this.items = null;
 
-
   items = [];
 }
 
