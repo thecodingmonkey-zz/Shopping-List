@@ -30,9 +30,6 @@ function changeCheckedStatus(idx) {
   else {
     myList.items[idx].check();
   }
-
-
-//  return myList.removeItem(myList.items[idx]);
 }
 
 
