@@ -1,4 +1,4 @@
-var myList = [new ShoppingList(), new ShoppingList(), new ShoppingList() ];
+var myList = [new ShoppingList(0), new ShoppingList(1), new ShoppingList(2) ];
 
 window.onload = function() {
   refreshLists();
@@ -39,11 +39,11 @@ function changeCheckedStatus(listNum, idx) {
 
 
 function removeItemButtonClicked(listNum, idx) {
-  if (idx >= myList.items.length)
+  if (idx >= myList[listNum].items.length)
     return false;
 
   myList[listNum].removeItem(myList[listNum].items[idx]);
 
-  document.getElementById('content').innerHTML = myList[listNum].render();
-
+//  document.getElementById('content').innerHTML = myList[listNum].render();
+  refreshLists();
 }

@@ -1,5 +1,6 @@
-function ShoppingList() {
+function ShoppingList(list_num) {
   this.items = [];
+  this.num = (list_num ? list_num : 0);
 }
 
 ShoppingList.prototype.addItem = function (item) {
@@ -36,8 +37,10 @@ ShoppingList.prototype.removeItem = function (item) {
 };
 
 ShoppingList.prototype.render = function() {
+  var num = this.num;  // closure alert.
+
   return "<ul>" + this.items.reduce( function(prev, curr, idx) {
-    return prev + curr.render(idx);
+    return prev + curr.render(num.toString() + ", " + idx.toString() );
   }, "" ) + "<ul>";
 
 };
