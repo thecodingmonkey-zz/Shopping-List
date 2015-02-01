@@ -17,7 +17,7 @@ ShoppingListItem.prototype.render = function(idx) {
     (this.is_done ? "finished_item" : "unfinished_item") +
     '">' +
     '<span class="delItem" onclick="removeItemButtonClicked(' + idx + ')">x</span>' +
-    '<input type="checkbox" onchange=\'changeCheckedStatus("' + idx + '");\'' + (this.is_done ? 'checked' : '') + '/>' +
+    '<input type="checkbox" onchange=\'changeCheckedStatus(' + idx + ');\'' + (this.is_done ? 'checked' : '') + '/>' +
     '<span>' + this.name + "</span> " +
     "<span>" + this.description + "</span> </li>";
 };
