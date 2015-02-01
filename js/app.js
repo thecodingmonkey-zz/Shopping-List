@@ -1,47 +1,49 @@
-var myList = new ShoppingList();
+var myList = [new ShoppingList(), new ShoppingList(), new ShoppingList() ];
 
 window.onload = function() {
-
-  document.getElementById('content').innerHTML = myList.render();
+  refreshLists();
 };
 
+function refreshLists() {
+  document.getElementById('content0').innerHTML = myList[0].render();  
+  document.getElementById('content1').innerHTML = myList[1].render();  
+  document.getElementById('content2').innerHTML = myList[2].render();  
+}
 
-function add_to_shopping_list() {
+
+function add_to_shopping_list(listNum) {
   var newItem = new ShoppingListItem(
-    document.forms[0].title.value,
-    document.forms[0].description.value
+    document.forms[listNum].title.value,
+    document.forms[listNum].description.value
     );
 
-  document.forms[0].title.value = '';
-  document.forms[0].description.value = '';
-  document.forms[0].title.focus();
+  document.forms[listNum].title.value = '';
+  document.forms[listNum].description.value = '';
+  document.forms[listNum].title.focus();
 
-  myList.addItem(newItem);
-  document.getElementById('content').innerHTML = myList.render();
+  myList[listNum].addItem(newItem);
+  refreshLists();
 }
 
-function changeCheckedStatus(idx) {
-  if (idx >= myList.items.length)
+function changeCheckedStatus(listNum, idx) {
+  if (idx >= myList[listNum].items.length)
     return false;
 
-  if (myList.items[idx].is_done) {
-    myList.items[idx].uncheck();
+  if (myList[listNum].items[idx].is_done) {
+    myList[listNum].items[idx].uncheck();
   }
   else {
-    myList.items[idx].check();
+    myList[listNum].items[idx].check();
   }
-
-
-//  return myList.removeItem(myList.items[idx]);
 }
 
 
-function removeItemButtonClicked(idx) {
+function removeItemButtonClicked(listNum, idx) {
   if (idx >= myList.items.length)
     return false;
 
-  myList.removeItem(myList.items[idx]);
+  myList[listNum].removeItem(myList[listNum].items[idx]);
 
-  document.getElementById('content').innerHTML = myList.render();
+  document.getElementById('content').innerHTML = myList[listNum].render();
 
 }

@@ -16,10 +16,26 @@
   <form onsubmit="return false;">
     <input type="text" id="title" width="50">
     <input type="text" id="description" width="100"/>
-    <button id="add_shopping_list_item" onclick="add_to_shopping_list();">Add to Shopping List</button>
+    <button id="add_shopping_list_item" onclick="add_to_shopping_list(0);">Add to Shopping List</button>
+  </form>
+  <div id="content0">
+  </div>
+
+    <form onsubmit="return false;">
+    <input type="text" id="title" width="50">
+    <input type="text" id="description" width="100"/>
+    <button id="add_shopping_list_item" onclick="add_to_shopping_list(1);">Add to Shopping List</button>
+  </form>
+  <div id="content1">
+  </div>
+
+  <form onsubmit="return false;">
+    <input type="text" id="title" width="50">
+    <input type="text" id="description" width="100"/>
+    <button id="add_shopping_list_item" onclick="add_to_shopping_list(2);">Add to Shopping List</button>
   </form>
 
-  <div id="content">
+  <div id="content2">
   </div>
 </body>
 </html>
