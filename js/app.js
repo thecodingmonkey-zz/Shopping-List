@@ -44,6 +44,5 @@ function removeItemButtonClicked(listNum, idx) {
 
   myList[listNum].removeItem(myList[listNum].items[idx]);
 
-//  document.getElementById('content').innerHTML = myList[listNum].render();
   refreshLists();
 }
