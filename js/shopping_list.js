@@ -1,7 +1,5 @@
 function ShoppingList() {
-  this.items = null;
-
-  items = [];
+  this.items = [];
 }
 
 ShoppingList.prototype.addItem = function (item) {
@@ -10,15 +8,15 @@ ShoppingList.prototype.addItem = function (item) {
     return false;
   }
 
-  items.push(item);
+  this.items.push(item);
 };
 
 ShoppingList.prototype.removeItem = function (item) {
   if (item instanceof ShoppingListItem) {
-    var idx = items.indexOf(item);
+    var idx = this.items.indexOf(item);
 
     if (idx !== -1) {  // item is in list
-      items.splice(idx, 1);
+      this.items.splice(idx, 1);
       return true;
     }
 
@@ -28,7 +26,7 @@ ShoppingList.prototype.removeItem = function (item) {
 
   if (item === undefined) {
     // handles last item for no parameters
-    items.pop();
+    this.items.pop();
     return true;
   }
 
@@ -38,8 +36,8 @@ ShoppingList.prototype.removeItem = function (item) {
 };
 
 ShoppingList.prototype.render = function() {
-  return "<ul>" + items.reduce( function(prev, curr) {
-    return prev + curr.render();
+  return "<ul>" + this.items.reduce( function(prev, curr, idx) {
+    return prev + curr.render(idx);
   }, "" ) + "<ul>";
 
 };
